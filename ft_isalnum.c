@@ -3,30 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: farias <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: farias <farias@student.42urduliz.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/09 12:15:42 by farias            #+#    #+#             */
-/*   Updated: 2024/09/09 12:24:59 by farias           ###   ########.fr       */
+/*   Created: 2024/09/30 12:13:43 by farias            #+#    #+#             */
+/*   Updated: 2024/09/30 12:13:57 by farias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 int	ft_isalnum(int c)
 {
 	if ((c < 65 || c > 90) && (c < 97 || c > 122) && (c < 48 || c > 57))
 		return (0);
 	else
 		return (1);
-}
-/*int	main()
-{
-	int	i;
-	i = 0;
-	while (i<130)
-	{
-		if (ft_isalnum(i) == 0 )
-			printf("%d false \n", i);
-		else
-			printf("%d true \n", i);
-		i++;
-	}
 }

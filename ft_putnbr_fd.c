@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: farias <farias@student.42urduliz.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 13:47:19 by farias            #+#    #+#             */
-/*   Updated: 2024/09/30 13:47:23 by farias           ###   ########.fr       */
+/*   Created: 2024/09/30 12:05:12 by farias            #+#    #+#             */
+/*   Updated: 2024/09/30 12:05:32 by farias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-char	*strrchr(const char *str, int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*res;
+	char	*num;
 
-	res = '\0';
-	while (*str)
-	{
-		if (*str == c)
-			res = (char *)str;
-		str++;
-	}
-	if (c == '\0')
-		return ((char *)str);
-	return (res);
+	num = ft_itoa(n);
+	if (!num)
+		return ;
+	ft_putstr_fd(num, fd);
+	free(num);
 }

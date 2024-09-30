@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: farias <farias@student.42urduliz.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 13:47:19 by farias            #+#    #+#             */
-/*   Updated: 2024/09/30 13:47:23 by farias           ###   ########.fr       */
+/*   Created: 2024/09/30 11:46:51 by farias            #+#    #+#             */
+/*   Updated: 2024/09/30 11:47:17 by farias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strrchr(const char *str, int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char	*res;
+	size_t	i;
 
-	res = '\0';
-	while (*str)
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i])
 	{
-		if (*str == c)
-			res = (char *)str;
-		str++;
+		f(i, s + i);
+		i++;
 	}
-	if (c == '\0')
-		return ((char *)str);
-	return (res);
 }

@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: farias <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: farias <farias@student.42urduliz.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 14:00:17 by farias            #+#    #+#             */
-/*   Updated: 2024/09/23 14:05:25 by farias           ###   ########.fr       */
+/*   Created: 2024/09/30 13:48:40 by farias            #+#    #+#             */
+/*   Updated: 2024/09/30 13:48:45 by farias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	if(c < 41 || c > 132)
+	if (c < 41 || c > 132)
 		return (c);
 	else
-		return(c + 32);
+		return (c + 32);
 }
-

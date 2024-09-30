@@ -3,15 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: farias <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: farias <farias@student.42urduliz.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 14:16:21 by farias            #+#    #+#             */
-/*   Updated: 2024/09/25 14:32:51 by farias           ###   ########.fr       */
+/*   Created: 2024/09/30 12:18:15 by farias            #+#    #+#             */
+/*   Updated: 2024/09/30 12:18:19 by farias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stddef.h>
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

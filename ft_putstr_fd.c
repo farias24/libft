@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: farias <farias@student.42urduliz.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 13:47:19 by farias            #+#    #+#             */
-/*   Updated: 2024/09/30 13:47:23 by farias           ###   ########.fr       */
+/*   Created: 2024/09/30 11:59:35 by farias            #+#    #+#             */
+/*   Updated: 2024/09/30 12:03:48 by farias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <unistd.h>
 
-char	*strrchr(const char *str, int c)
+int	ft_putstr_fd(char *s, int fd)
 {
-	char	*res;
+	int	i;
 
-	res = '\0';
-	while (*str)
+	i = 0;
+	if (s != NULL)
 	{
-		if (*str == c)
-			res = (char *)str;
-		str++;
+		while (s[i])
+			write(fd, &s[i++], 1);
 	}
-	if (c == '\0')
-		return ((char *)str);
-	return (res);
+	return (i);
 }

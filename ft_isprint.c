@@ -3,30 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: farias <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: farias <farias@student.42urduliz.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/09 13:29:43 by farias            #+#    #+#             */
-/*   Updated: 2024/09/09 13:31:27 by farias           ###   ########.fr       */
+/*   Created: 2024/09/30 12:15:19 by farias            #+#    #+#             */
+/*   Updated: 2024/09/30 12:15:21 by farias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	if(c > 31 && c < 127)
+	if (c > 31 && c < 127)
 		return (1);
 	return (0);
-}
-/*
-int	main()
-{
-	int	i;
-	i = 0;
-	while (i<130)
-	{
-		if (ft_isprint(i) == 0 )
-			printf("%d false \n", i);
-		else
-			printf("%d true \n", i);
-		i++;
-	}
 }

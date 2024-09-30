@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: farias <farias@student.42urduliz.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 13:47:19 by farias            #+#    #+#             */
-/*   Updated: 2024/09/30 13:47:23 by farias           ###   ########.fr       */
+/*   Created: 2024/09/30 11:45:58 by farias            #+#    #+#             */
+/*   Updated: 2024/09/30 11:46:07 by farias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-char	*strrchr(const char *str, int c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*res;
+	char	*ptr;
+	size_t	i;
 
-	res = '\0';
-	while (*str)
+	if (!s || !f)
+		return (NULL);
+	ptr = ft_strdup(s);
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	while (ptr[i])
 	{
-		if (*str == c)
-			res = (char *)str;
-		str++;
+		ptr[i] = f(i, ptr[i]);
+		i++;
 	}
-	if (c == '\0')
-		return ((char *)str);
-	return (res);
+	return (ptr);
 }
