@@ -9,19 +9,17 @@
 /*   Updated: 2024/09/30 13:45:18 by farias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 char	*strchr(const char *str, int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] == c)
-			return ((char *)&str[i]);
-		i++;
+		if (*str == (char)c)
+			return ((char *)str);
+		str++;
 	}
-	if (str[i] == c)
-		return ((char *)&str[i]);
-	return (0);
+	if ((char)c == '\0')
+		return ((char *)str);
+	return (NULL);
 }
