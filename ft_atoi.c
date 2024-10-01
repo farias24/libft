@@ -10,25 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char	*str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	sign;
 	int	numb;
-	int	flag;
 
 	i = 0;
-	flag = 0;
 	sign = 1;
 	numb = 0;
 	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
 		i++;
-	while ((str[i] == '+' || str[i] == '-') && flag == 0)
+	while (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
-			sign = sign * -1;
+			sign = -1;
 		i++;
-		flag = 1;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{

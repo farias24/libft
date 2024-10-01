@@ -11,75 +11,69 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-char	**ft_count_substrings(char const *s, char c)
+static void	ft_free2dstr(char **ptr, size_t index)
 {
-	size_t	i;
-	size_t	count;
-	char	**ptr;
-
-	i = 0;
-	count = 0;
-	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != c && s[i] != '\0')
-			count++;
-		while (s[i] && (s[i] != c))
-			i++;
-	}
-	ptr = (char **)malloc(sizeof(char *) * (count + 1));
-	if (!ptr)
-		return (NULL);
-	ptr[count] = NULL;
-	return (ptr);
+	while (index--)
+		free(ptr[index]);
+	free(ptr);
 }
 
-char	**ft_alloc_substrings(char **ptr, char const *s, char c, size_t i)
+static size_t	ft_count_substrings(char const *s, char c)
 {
-	size_t	start;
-	size_t	substring_id;
+	size_t	count;
 
-	substring_id = 0;
-	while (s[i])
+	count = 0;
+	while (*s)
 	{
-		while (s[i] == c)
-			i++;
-		start = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > start)
+		while (*s == c)
+			s++;
+		if (*s && *s != c)
 		{
-			ptr[substring_id] = (char *)malloc(sizeof(char) * \
-			(i - start + 1));
-			if (!ptr[substring_id])
-				return (ft_free2dstr(ptr), ptr);
-			ft_memcpy(ptr[substring_id], s + start, i - start);
-			ptr[substring_id][i - start] = '\0';
-			substring_id++;
+			count++;
+			while (*s && *s != c)
+				s++;
 		}
 	}
-	ptr[substring_id] = NULL;
+	return (count);
+}
+
+static char	**ft_alloc_substrings(char **ptr, char const *s, char c)
+{
+	size_t	start;
+	size_t	idx;
+
+	idx = 0;
+	while (*s)
+	{
+		while (*s == c)
+			s++;
+		start = 0;
+		while (s[start] && s[start] != c)
+			start++;
+		if (start > 0)
+		{
+			ptr[idx] = (char *)malloc(sizeof(char) * (start + 1));
+			if (!ptr[idx])
+				return (ft_free2dstr(ptr, idx), NULL);
+			ft_memcpy(ptr[idx], s, start);
+			ptr[idx++][start] = '\0';
+		}
+		s += start;
+	}
+	ptr[idx] = NULL;
 	return (ptr);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr;
+	size_t	sub_count;
 
-	if (!s || ft_strlen(s) == 0)
-	{
-		ptr = (char **)malloc(sizeof(char *));
-		if (!ptr)
-			return (NULL);
-		ptr[0] = NULL;
-		return (ptr);
-	}
-	ptr = ft_count_substrings(s, c);
+	if (!s)
+		return (NULL);
+	sub_count = ft_count_substrings(s, c);
+	ptr = (char **)malloc(sizeof(char *) * (sub_count + 1));
 	if (!ptr)
 		return (NULL);
-	ptr = ft_alloc_substrings(ptr, s, c, 0);
-	if (!ptr)
-		return (NULL);
-	return (ptr);
+	return (ft_alloc_substrings(ptr, s, c));
 }

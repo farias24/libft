@@ -9,9 +9,9 @@
 /*   Updated: 2024/09/30 12:03:48 by farias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
-int	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
@@ -21,5 +21,4 @@ int	ft_putstr_fd(char *s, int fd)
 		while (s[i])
 			write(fd, &s[i++], 1);
 	}
-	return (i);
 }

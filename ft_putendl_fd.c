@@ -19,13 +19,14 @@ void	ft_putendl_fd(char *s, int fd)
 	i = 0;
 	flag = 0;
 	if (!s)
-		return (write(fd, "(null)", 6));
-	i += write(fd, s, ft_strlen(s));
+	{
+		write(fd, "(null)", 6);
+		return ;
+	}
+	i = i + write(fd, s, ft_strlen(s));
 	if (i == -1)
-		return (i);
+		return ;
 	flag += write(fd, "\n", 1);
 	if (flag == -1)
-		return (flag);
-	else
-		return (i + 1);
+		return ;
 }
